@@ -27,14 +27,8 @@ pythondir = '@GDBDATADIR@'
 if pythondir not in sys.path:
     sys.path.insert(0, pythondir)
 
-import boost.optional
-import boost.ptr_container
-import boost.smart_ptr
-import boost.unordered
-# no object file
-boost.optional.register_pretty_printers(gdb)
-boost.ptr_container.register_pretty_printers(gdb)
-boost.smart_ptr.register_pretty_printers(gdb)
-boost.unordered.register_pretty_printers(gdb)
+import boost
+# no object file, register globally
+boost.register_pretty_printers(gdb)
 
 # vim:set filetype=python shiftwidth=4 softtabstop=4 expandtab:
