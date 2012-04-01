@@ -44,6 +44,7 @@ AC_SUBST([GDBDATADIR])
 # ===========================
 # Required for tests
 local_CHECK_BOOST_HEADER([boost/optional.hpp])
+local_CHECK_BOOST_HEADER([boost/ptr_container/ptr_container.hpp])
 local_CHECK_BOOST_HEADER([boost/smart_ptr.hpp])
 local_CHECK_BOOST_HEADER([boost/unordered_map.hpp])
 local_CHECK_BOOST_HEADER([boost/unordered_set.hpp])
