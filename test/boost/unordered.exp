@@ -1,0 +1,47 @@
+# Test for GDB pretty printers for Boost.Optional.
+#
+# Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
+#
+# This file is part of boost-gdb-printers.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+load_lib pretty-printers.exp
+
+pp_gdb_init $BINFILE $srcdir/$subdir
+
+if {![pp_load_printers [list boost.unordered]]} {
+    perror "could not load pretty printers"
+    return
+}
+
+if {![pp_run_test boost_unordered]} {
+    perror "the executable is not a proper pretty printer test"
+    return
+}
+
+pp_test "empty_set" {empty boost::unordered_set}
+pp_test "set_int" {boost::unordered_set with 4 elements = \{1, 2, 3, 4\}}
+pp_test "set_string" {boost::unordered_set with 4 elements = \{"bar", "world", "hello", "foo"\}}
+
+pp_test "empty_map" {empty boost::unordered_map}
+pp_test "map_string_int" {boost::unordered_map with 3 elements = \{\["bar"\] = 3, \["hello"\] = 1, \["foo"\] = 2\}}
+
+pp_test "empty_multiset" {empty boost::unordered_multiset}
+pp_test "multiset_int" {boost::unordered_multiset with 5 elements = \{1, 1, 2, 3, 4\}}
+
+pp_test "empty_multimap" {empty boost::unordered_multimap}
+pp_test "multimap_string_int" {boost::unordered_multimap with 4 elements = \{\["bar"\] = 3, \["hello"\] = 1, \["foo"\] = 2, \["foo"\] = 4\}}
+
+# vim: set shiftwidth=4 softtabstop=4 expandtab:

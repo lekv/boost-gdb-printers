@@ -1,0 +1,31 @@
+# compiled python files
+*.py[co]
+
+# autotools-generated files
+aclocal.m4
+autom4te.cache
+config.h
+config.h.in
+config.log
+config.status
+configure
+depcomp
+.dirstamp
+install-sh
+Makefile
+Makefile.in
+missing
+stamp-h1
+
+# object files
+*.o
+
+# deps
+.deps
+
+# dejagnu config files
+site.exp
+
+# dejagnu test results
+*.log
+*.sum

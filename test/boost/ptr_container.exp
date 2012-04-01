@@ -1,0 +1,68 @@
+
+# Test for GDB pretty printers for Boost.Pointer Container.
+#
+# Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
+#
+# This file is part of boost-gdb-printers.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+load_lib pretty-printers.exp
+
+pp_gdb_init $BINFILE $srcdir/$subdir
+
+if {![pp_load_printers [list boost.ptr_container]]} {
+    perror "could not load pretty printers"
+    return
+}
+
+if {![pp_run_test boost_ptr_container]} {
+    perror "the executable is not a proper pretty printer test"
+    return
+}
+
+pp_test "empty_deque" {empty boost::ptr_deque}
+pp_test "deque_int" {boost::ptr_deque of length 4 = \{0, 1, 2, 3\}}
+
+pp_test "empty_list" {empty boost::ptr_list}
+pp_test "list_int" {boost::ptr_list of length 4 = \{0, 1, 2, 3\}}
+
+pp_test "empty_vector" {empty boost::ptr_vector}
+pp_test "vector_int" {boost::ptr_vector of length 4 = \{0, 1, 2, 3\}}
+
+pp_test "empty_set" {empty boost::ptr_set}
+pp_test "set_int" {boost::ptr_set with 4 elements = \{0, 1, 2, 3\}}
+
+pp_test "empty_multiset" {empty boost::ptr_multiset}
+pp_test "multiset_int" {boost::ptr_multiset with 5 elements = \{1, 1, 2, 3, 4\}}
+
+pp_test "empty_map" {empty boost::ptr_map}
+pp_test "map_string_int" {boost::ptr_map with 4 elements = \{\["bar"\] = 4, \["foo"\] = 3, \["hello"\] = 1, \["world"\] = 2\}}
+
+pp_test "empty_multimap" {empty boost::ptr_multimap}
+pp_test "multimap_string_int" {boost::ptr_multimap with 5 elements = \{\["bar"\] = 4, \["foo"\] = 3, \["hello"\] = 1, \["world"\] = 2, \["world"\] = 5\}}
+
+pp_test "empty_unordered_set" {empty boost::ptr_unordered_set}
+pp_test "unordered_set_int" {boost::ptr_unordered_set with 4 elements = \{0, 1, 2, 3\}}
+
+pp_test "empty_unordered_multiset" {empty boost::ptr_unordered_multiset}
+pp_test "unordered_multiset_int" {boost::ptr_unordered_multiset with 5 elements = \{1, 1, 2, 3, 4\}}
+
+pp_test "empty_unordered_map" {empty boost::ptr_unordered_map}
+pp_test "unordered_map_string_int" {boost::ptr_unordered_map with 4 elements = \{\["bar"\] = 4, \["world"\] = 2, \["hello"\] = 1, \["foo"\] = 3\}}
+
+pp_test "empty_unordered_multimap" {empty boost::ptr_unordered_multimap}
+pp_test "unordered_multimap_string_int" {boost::ptr_unordered_multimap with 5 elements = \{\["bar"\] = 4, \["world"\] = 2, \["world"\] = 5, \["hello"\] = 1, \["foo"\] = 3\}}
+
+# vim: set shiftwidth=4 softtabstop=4 expandtab:
