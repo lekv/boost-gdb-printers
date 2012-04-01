@@ -225,7 +225,7 @@ def build_pretty_printers():
     if printer != None:
         return
 
-    printer = printing.Printer("boost")
+    printer = printing.Printer("boost.ptr_container")
 
     printer.add('boost::ptr_deque', (lambda t, v: PtrSequencePrinter(t, v, "deque")))
     printer.add('boost::ptr_list', (lambda t, v: PtrSequencePrinter(t, v, "list")))

@@ -96,7 +96,7 @@ def build_pretty_printers():
     if printer != None:
         return
 
-    printer = printing.Printer("boost")
+    printer = printing.Printer("boost.unordered")
 
     printer.add('boost::unordered_map', UnorderedMapPrinter)
     printer.add('boost::unordered_multimap', UnorderedMapPrinter)

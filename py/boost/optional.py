@@ -44,7 +44,7 @@ def build_pretty_printers():
     if printer != None:
         return
 
-    printer = printing.Printer("boost")
+    printer = printing.Printer("boost.optional")
 
     printer.add('boost::optional', OptionalPrinter)
 
