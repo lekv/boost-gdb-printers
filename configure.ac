@@ -52,6 +52,33 @@ local_CHECK_BOOST_HEADER([boost/unordered_set.hpp])
 # Other used stuff
 local_CHECK_BOOST_HEADER([boost/assign/list_inserter.hpp])
 
+# ======================================================================
+# Get boost version and transform it into default pretty printer version
+# ======================================================================
+AC_MSG_CHECKING([for boost version])
+AC_RUN_IFELSE([AC_LANG_SOURCE([dnl
+#include <cstdio>
+#include <boost/version.hpp>
+int main()
+{
+    using namespace std;
+    puts(BOOST_LIB_VERSION);
+    return 0;
+}dnl
+])], [boost_lib_version=`./conftest$EXEEXT`])
+
+if ! test -n "$boost_lib_version"; then
+    AC_MSG_WARN([could not determine boost version, assuming 1_44])
+    boost_lib_version=1_44
+fi
+
+case $boost_lib_version in
+    1_44|1_45|1_46|1_47) PP_VERSION=v1_44 ;;
+    1_48|1_49) PP_VERSION=v1_48 ;;
+    *) PP_VERSION=v1_48 ;;
+esac
+AC_SUBST([PP_VERSION])
+
 # =====================
 # Prepare all .in files
 # =====================

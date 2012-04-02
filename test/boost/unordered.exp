@@ -21,7 +21,7 @@ load_lib pretty-printers.exp
 
 pp_gdb_init $BINFILE $srcdir/$subdir
 
-if {![pp_load_printers [list boost.unordered]]} {
+if {![pp_load_printers [list boost.$PP_VERSION.unordered]]} {
     perror "could not load pretty printers"
     return
 }

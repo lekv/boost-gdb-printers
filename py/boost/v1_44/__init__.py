@@ -1,4 +1,5 @@
-# Test for GDB pretty printers for Boost.Optional.
+# -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
+# GDB pretty printers for Boost.
 #
 # Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
 #
@@ -17,23 +18,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-load_lib pretty-printers.exp
+import boost.v1_44.optional
+import boost.v1_44.ptr_container
+import boost.v1_44.smart_ptr
+import boost.v1_44.unordered
 
-pp_gdb_init $BINFILE $srcdir/$subdir
+def register_pretty_printers(obj):
+    boost.v1_44.optional.register_pretty_printer(obj)
+    boost.v1_44.ptr_container.register_pretty_printer(obj)
+    boost.v1_44.smart_ptr.register_pretty_printer(obj)
+    boost.v1_44.unordered.register_pretty_printer(obj)
 
-if {![pp_load_printers [list boost.$PP_VERSION.optional]]} {
-    perror "could not load pretty printers"
-    return
-}
-
-if {![pp_run_test boost_optional]} {
-    perror "the executable is not a proper pretty printer test"
-    return
-}
-
-pp_test "empty_opt" {empty boost::optional}
-pp_test "opt_int" {boost::optional 42}
-pp_test "opt_string" {boost::optional "hello world"}
-pp_test "opt_vector" {boost::optional std::vector of length 4, capacity [0-9]+ = \{1, 2, 3, 4\}}
-
-# vim: set shiftwidth=4 softtabstop=4 expandtab:
+# vim:set filetype=python shiftwidth=4 softtabstop=4 expandtab:
