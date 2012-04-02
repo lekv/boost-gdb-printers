@@ -13,6 +13,11 @@ AM_INIT_AUTOMAKE([1.11 dist-bzip2])
 AM_SILENT_RULES([yes])
 AM_MAINTAINER_MODE
 
+AC_ARG_WITH([boost-headers],
+        [AS_HELP_STRING([--with-boost-headers=dir], [find Boost headers at nonstandard place])],
+        [BOOST_CPPFLAGS=-I$with_boost_headers])
+AC_SUBST([BOOST_CPPFLAGS])
+
 # ===========================
 # Find required base packages
 # ===========================
@@ -43,6 +48,8 @@ AC_SUBST([GDBDATADIR])
 # Find required boost headers
 # ===========================
 # Required for tests
+save_CPPFLAGS="$CPPFLAGS"
+CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
 local_CHECK_BOOST_HEADER([boost/optional.hpp])
 local_CHECK_BOOST_HEADER([boost/ptr_container/ptr_container.hpp])
 local_CHECK_BOOST_HEADER([boost/smart_ptr.hpp])
@@ -66,6 +73,7 @@ int main()
     return 0;
 }dnl
 ])], [boost_lib_version=`./conftest$EXEEXT`])
+CPPFLAGS="$save_CPPFLAGS"
 
 if ! test -n "$boost_lib_version"; then
     AC_MSG_WARN([could not determine boost version, assuming 1_44])

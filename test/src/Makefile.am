@@ -1,5 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
+AM_CPPFLAGS = $(BOOST_CPPFLAGS)
 CXXFLAGS += -O0 -ggdb2
 
 check_PROGRAMS = test
