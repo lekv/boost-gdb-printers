@@ -26,8 +26,8 @@ proc pp_gdb_init {binfile dir} {
     gdb_reinitialize_dir $dir
     gdb_load $binfile
 
-    # FIXME: gdb version!
-    gdb_test_no_output "set python print-stack on"
+    # FIXME: this should be set python print-stack full in gdb 7.4 (7.3?)
+    # gdb_test_no_output "set python print-stack on"
     gdb_test_no_output "set print pretty off"
 }
 
