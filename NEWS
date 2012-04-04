@@ -1,0 +1,6 @@
+=== v. 2 ===
+* added support for use with Boost 1.48 and later (Boost.Unordered
+  changed in that version)
+
+=== v. 1 ===
+* initial release
