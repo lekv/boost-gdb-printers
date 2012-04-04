@@ -6,12 +6,14 @@ SUBDIRS = src
 
 EXTRA_DIST = \
 	boards \
-	boost \
+	common \
 	config \
-	lib
+	lib \
+	v1_44 \
+	v1_48
 
 RUNTEST=$(RUNTEST_BIN)
-DEJATOOL = boost
+DEJATOOL = common $(PP_VERSION)
 AM_RUNTESTFLAGS = BINFILE=src/test GDB=$(GDB) PP_VERSION=$(PP_VERSION)
 
 export PYTHONPATH=$(top_srcdir)/py
