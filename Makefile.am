@@ -4,9 +4,6 @@ ACLOCAL_AMFLAGS = -I m4
 
 SUBDIRS = py test
 
-gdbpythondir = $(GDBDATADIR)/python
-dist_gdbpython_DATA = boost-gdb-printers.py
-
 EXTRA_DIST = \
 	AUTHORS \
 	COPYING \

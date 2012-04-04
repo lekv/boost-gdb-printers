@@ -31,19 +31,6 @@ AC_PATH_PROG([GDB], [gdb])
 AC_PATH_PROG([EXPECT], [expect])
 AC_PATH_PROG([RUNTEST_BIN], [runtest])
 
-# ===================
-# Find gdb's data dir
-# ===================
-AC_MSG_CHECKING([for gdb data directory])
-GDBDATADIR=[`$GDB --batch -nx -nw --eval-command='show data-directory' | $SED -e 's@[^"]*"\([^"]\+\)".*@\1@'`]
-if test -d "$GDBDATADIR"; then
-    AC_MSG_RESULT([$GDBDATADIR])
-else
-    AC_MSG_RESULT([not found])
-    AC_MSG_ERROR([could not detect gdb data directory])
-fi
-AC_SUBST([GDBDATADIR])
-
 # ===========================
 # Find required boost headers
 # ===========================
