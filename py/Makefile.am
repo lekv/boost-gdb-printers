@@ -21,4 +21,13 @@ nobase_dist_gdb_DATA = \
 	boost/v1_48/smart_ptr.py \
 	boost/v1_48/unordered.py
 
+clean-local:
+	-rm -f \
+		boost/*.py[co] \
+		boost/util/*.py[co] \
+		boost/v1_44/*.py[co] \
+		boost/v1_44/lib/*.py[co] \
+		boost/v1_48/*.py[co] \
+		boost/v1_48/lib/*.py[co]
+
 ## vim: set shiftwidth=4 tabstop=4 noexpandtab:
