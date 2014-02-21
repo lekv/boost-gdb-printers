@@ -1,5 +1,5 @@
 # -*- tab-width: 4; indent-tabs-mode: nil; py-indent-offset: 4 -*-
-# GDB pretty printers for Boost.
+# GDB pretty printers for Boost 1.48.
 #
 # Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
 #
