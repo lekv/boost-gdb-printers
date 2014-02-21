@@ -17,6 +17,9 @@ Makefile.in
 missing
 stamp-h1
 
+# other generated files
+boost-gdb-printers.py
+
 # object files
 *.o
 
@@ -29,3 +32,6 @@ site.exp
 # dejagnu test results
 *.log
 *.sum
+
+# dejagnu backup file
+site.bak
