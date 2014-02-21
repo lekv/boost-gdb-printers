@@ -11,6 +11,7 @@ EXTRA_DIST = \
 	lib \
 	v1_44 \
 	v1_45 \
+	v1_46 \
 	v1_48
 
 RUNTEST=$(RUNTEST_BIN)

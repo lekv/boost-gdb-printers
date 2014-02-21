@@ -59,7 +59,7 @@ int main()
     puts(BOOST_LIB_VERSION);
     return 0;
 }dnl
-])], [boost_lib_version=`./conftest$EXEEXT`])
+])], [[boost_lib_version=`./conftest$EXEEXT | sed -e 's/^\([0-9]\+_[0-9]\+\).*/\1/'`]])
 CPPFLAGS="$save_CPPFLAGS"
 
 if ! test -n "$boost_lib_version"; then
