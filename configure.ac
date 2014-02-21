@@ -37,14 +37,18 @@ AC_PATH_PROG([RUNTEST_BIN], [runtest])
 # Required for tests
 save_CPPFLAGS="$CPPFLAGS"
 CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
-local_CHECK_BOOST_HEADER([boost/optional.hpp])
-local_CHECK_BOOST_HEADER([boost/ptr_container/ptr_container.hpp])
-local_CHECK_BOOST_HEADER([boost/smart_ptr.hpp])
-local_CHECK_BOOST_HEADER([boost/unordered_map.hpp])
-local_CHECK_BOOST_HEADER([boost/unordered_set.hpp])
-
-# Other used stuff
-local_CHECK_BOOST_HEADER([boost/assign/list_inserter.hpp])
+AC_CHECK_HEADERS([\
+        boost/assign/list_inserter.hpp \
+        boost/optional.hpp \
+        boost/ptr_container/ptr_container.hpp \
+        boost/smart_ptr.hpp \
+        boost/unordered_map.hpp \
+        boost/unordered_set.hpp \
+    ],
+    [],
+    [AC_MSG_ERROR([Required boost headers not found.])],
+    []
+)
 
 # ======================================================================
 # Get boost version and transform it into default pretty printer version

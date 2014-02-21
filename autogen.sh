@@ -23,7 +23,7 @@ fi
 
 rm -rf autom4te*.cache
 
-aclocal -I m4 $ACLOCAL_FLAGS || {
+aclocal $ACLOCAL_FLAGS || {
     echo "error: aclocal $ACLOCAL_FLAGS failed"
     exit 1
 }
