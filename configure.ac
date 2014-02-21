@@ -67,11 +67,9 @@ if ! test -n "$boost_lib_version"; then
     boost_lib_version=1_44
 fi
 
-case $boost_lib_version in
-    1_44|1_45|1_46|1_47) PP_VERSION=v1_44 ;;
-    1_48|1_49) PP_VERSION=v1_48 ;;
-    *) PP_VERSION=v1_48 ;;
-esac
+AS_IF([test -d $srcdir/py/boost/v$boost_lib_version],
+      [PP_VERSION=v$boost_lib_version],
+      [AC_MSG_ERROR([boost version $boost_lib_version is not supported])])
 AC_SUBST([PP_VERSION])
 
 # =====================
