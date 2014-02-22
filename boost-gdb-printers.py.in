@@ -22,7 +22,7 @@ import sys
 
 import gdb
 
-pythondir = '@GDBDATADIR@'
+pythondir = '@DATADIR@/boost-gdb-printers'
 
 if pythondir not in sys.path:
     sys.path.insert(0, pythondir)
