@@ -53,20 +53,32 @@ AC_CHECK_HEADERS([\
 # =================
 # Get boost version
 # =================
-AC_MSG_CHECKING([for boost version])
-AC_RUN_IFELSE([AC_LANG_SOURCE([dnl
-#include <cstdio>
-#include <boost/version.hpp>
-int main()
-{
-    using namespace std;
-    puts(BOOST_LIB_VERSION);
-    return 0;
-}dnl
-])], [[boost_lib_version=`./conftest$EXEEXT | sed -e 's/^\([0-9]\+_[0-9]\+\).*/\1/'`]])
-CPPFLAGS="$save_CPPFLAGS"
-
-AS_IF([test -n "$boost_lib_version"], [], [AC_MSG_ERROR([could not determine boost version])])
+AC_ARG_WITH([boost-version],
+    [AS_HELP_STRING(
+        [--with-boost-version=<major>_<minor>],
+        [specify boost version to build for])],
+    [with_boost_version=$withval])
+AS_IF([test -n "$with_boost_version"],
+    [boost_lib_version=$with_boost_version],
+    [dnl
+        AC_MSG_CHECKING([for boost version])
+        AC_RUN_IFELSE([AC_LANG_SOURCE([dnl
+        #include <cstdio>
+        #include <boost/version.hpp>
+        int main()
+        {
+            using namespace std;
+            puts(BOOST_LIB_VERSION);
+            return 0;
+        }dnl
+        ])], [[boost_lib_version=`./conftest$EXEEXT | sed -e 's/^\([0-9]\+_[0-9]\+\).*/\1/'`]])
+        CPPFLAGS="$save_CPPFLAGS"
+        AS_IF([test -n "$boost_lib_version"],
+            [],
+            [AC_MSG_ERROR([could not determine boost version])]
+        )dnl
+    ]
+)
 
 AS_IF([test -d $srcdir/py/boost/v$boost_lib_version],
       [PP_VERSION=v$boost_lib_version],
