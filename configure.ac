@@ -66,10 +66,7 @@ int main()
 ])], [[boost_lib_version=`./conftest$EXEEXT | sed -e 's/^\([0-9]\+_[0-9]\+\).*/\1/'`]])
 CPPFLAGS="$save_CPPFLAGS"
 
-if ! test -n "$boost_lib_version"; then
-    AC_MSG_WARN([could not determine boost version, assuming 1_44])
-    boost_lib_version=1_44
-fi
+AS_IF([test -n "$boost_lib_version"], [], [AC_MSG_ERROR([could not determine boost version])])
 
 AS_IF([test -d $srcdir/py/boost/v$boost_lib_version],
       [PP_VERSION=v$boost_lib_version],
