@@ -50,9 +50,9 @@ AC_CHECK_HEADERS([\
     []
 )
 
-# ======================================================================
-# Get boost version and transform it into default pretty printer version
-# ======================================================================
+# =================
+# Get boost version
+# =================
 AC_MSG_CHECKING([for boost version])
 AC_RUN_IFELSE([AC_LANG_SOURCE([dnl
 #include <cstdio>
