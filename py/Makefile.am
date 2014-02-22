@@ -13,13 +13,65 @@ nobase_dist_gdb_DATA = \
 	boost/v1_44/ptr_container.py \
 	boost/v1_44/smart_ptr.py \
 	boost/v1_44/unordered.py \
+	boost/v1_45/__init__.py \
+	boost/v1_45/optional.py \
+	boost/v1_45/ptr_container.py \
+	boost/v1_45/smart_ptr.py \
+	boost/v1_45/unordered.py \
+	boost/v1_46/__init__.py \
+	boost/v1_46/optional.py \
+	boost/v1_46/ptr_container.py \
+	boost/v1_46/smart_ptr.py \
+	boost/v1_46/unordered.py \
+	boost/v1_47/__init__.py \
+	boost/v1_47/optional.py \
+	boost/v1_47/ptr_container.py \
+	boost/v1_47/smart_ptr.py \
+	boost/v1_47/unordered.py \
 	boost/v1_48/__init__.py \
 	boost/v1_48/lib/__init__.py \
 	boost/v1_48/lib/unordered.py \
 	boost/v1_48/optional.py \
 	boost/v1_48/ptr_container.py \
 	boost/v1_48/smart_ptr.py \
-	boost/v1_48/unordered.py
+	boost/v1_48/unordered.py \
+	boost/v1_49/__init__.py \
+	boost/v1_49/optional.py \
+	boost/v1_49/ptr_container.py \
+	boost/v1_49/smart_ptr.py \
+	boost/v1_49/unordered.py \
+	boost/v1_50/__init__.py \
+	boost/v1_50/optional.py \
+	boost/v1_50/ptr_container.py \
+	boost/v1_50/smart_ptr.py \
+	boost/v1_50/unordered.py \
+	boost/v1_51/__init__.py \
+	boost/v1_51/optional.py \
+	boost/v1_51/ptr_container.py \
+	boost/v1_51/smart_ptr.py \
+	boost/v1_51/unordered.py \
+	boost/v1_52/__init__.py \
+	boost/v1_52/lib/__init__.py \
+	boost/v1_52/lib/unordered.py \
+	boost/v1_52/optional.py \
+	boost/v1_52/ptr_container.py \
+	boost/v1_52/smart_ptr.py \
+	boost/v1_52/unordered.py \
+	boost/v1_53/__init__.py \
+	boost/v1_53/optional.py \
+	boost/v1_53/ptr_container.py \
+	boost/v1_53/smart_ptr.py \
+	boost/v1_53/unordered.py \
+	boost/v1_54/__init__.py \
+	boost/v1_54/optional.py \
+	boost/v1_54/ptr_container.py \
+	boost/v1_54/smart_ptr.py \
+	boost/v1_54/unordered.py \
+	boost/v1_55/__init__.py \
+	boost/v1_55/optional.py \
+	boost/v1_55/ptr_container.py \
+	boost/v1_55/smart_ptr.py \
+	boost/v1_55/unordered.py
 
 clean-local:
 	-rm -f \
@@ -27,7 +79,18 @@ clean-local:
 		boost/util/*.py[co] \
 		boost/v1_44/*.py[co] \
 		boost/v1_44/lib/*.py[co] \
+		boost/v1_45/*.py[co] \
+		boost/v1_46/*.py[co] \
+		boost/v1_47/*.py[co] \
 		boost/v1_48/*.py[co] \
-		boost/v1_48/lib/*.py[co]
+		boost/v1_48/lib/*.py[co] \
+		boost/v1_49/*.py[co] \
+		boost/v1_50/*.py[co] \
+		boost/v1_51/*.py[co] \
+		boost/v1_52/*.py[co] \
+		boost/v1_52/lib/*.py[co] \
+		boost/v1_53/*.py[co] \
+		boost/v1_54/*.py[co] \
+		boost/v1_55/*.py[co]
 
 ## vim: set shiftwidth=4 tabstop=4 noexpandtab:
