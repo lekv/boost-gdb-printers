@@ -19,7 +19,8 @@ EXTRA_DIST = \
 	v1_51 \
 	v1_52 \
 	v1_53 \
-	v1_54
+	v1_54 \
+	v1_55
 
 RUNTEST=$(RUNTEST_BIN)
 DEJATOOL = common $(PP_VERSION)
