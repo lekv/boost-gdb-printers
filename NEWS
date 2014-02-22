@@ -1,3 +1,8 @@
+=== v. 3 ===
+* stop mapping real Boost version to a pretty printer version; add
+  explicit code for every Boost version instead
+* add support for Boost 1.52 and later (Boost.Unordered changed again)
+
 === v. 2 ===
 * added support for use with Boost 1.48 and later (Boost.Unordered
   changed in that version)
