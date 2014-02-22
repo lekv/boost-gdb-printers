@@ -60,8 +60,8 @@ class Unordered(object):
 
         table = self.value['table_'].type.fields()[0]
         assert table.is_base_class
-        allocators = table.type.fields()[2]
-        assert allocators.name == 'allocators_'
+        allocators = table.type['allocators_']
+        assert allocators
 
         self.node_type = allocators.type.template_argument(1).template_argument(0)
         bucket_type = allocators.type.template_argument(0).template_argument(0).strip_typedefs()
