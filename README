@@ -1,0 +1,44 @@
+= Read me =
+
+== Description ==
+This is a collection of pretty printers for various Boost types for gdb
+7.x. Currently supported types are (by library):
+
+* Optional
+  + optional
+* Pointer Container
+  + ptr_deque
+  + ptr_list
+  + ptr_map
+  + ptr_multimap
+  + ptr_multiset
+  + ptr_set
+  + ptr_unordered_map
+  + ptr_unordered_multimap
+  + ptr_unordered_multiset
+  + ptr_unordered_set
+  + ptr_vector
+* Smart Ptr
+  + scoped_ptr
+  + shared_ptr
+  + weak_ptr
+* Unordered
+  + unordered_map
+  + unordered_multimap
+  + unordered_multiset
+  + unordered_set
+
+== How to build ==
+./autogen.sh # if you are building from git
+./configure
+make
+make install
+
+== How to use ==
+Because these pretty printers are for header-only Boost libraries, it is
+not possible to use auto-loading. That means you need to import the
+pretty printers manually. You can use the code in boost-gdb-printers.py
+(under any license you need).
+
+== License ==
+The project is released under GPLv3.
