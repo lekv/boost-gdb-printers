@@ -9,7 +9,7 @@ AC_INIT([boost-gdb-printers],[3])
 AC_CONFIG_MACRO_DIR([m4])
 AM_CONFIG_HEADER([config.h])
 AC_LANG([C++])
-AM_INIT_AUTOMAKE([1.11 dist-bzip2])
+AM_INIT_AUTOMAKE([1.11 dist-bzip2 dist-xz])
 AM_SILENT_RULES([yes])
 AM_MAINTAINER_MODE
 
