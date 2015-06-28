@@ -1,7 +1,5 @@
 /* Test code for Boost.Unordered.
 
-   Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
-
    This file is part of boost-gdb-printers.
 
    This program is free software; you can redistribute it and/or modify
