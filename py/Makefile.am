@@ -71,7 +71,17 @@ nobase_dist_gdb_DATA = \
 	boost/v1_55/optional.py \
 	boost/v1_55/ptr_container.py \
 	boost/v1_55/smart_ptr.py \
-	boost/v1_55/unordered.py
+	boost/v1_55/unordered.py \
+	boost/v1_56/__init__.py \
+	boost/v1_56/optional.py \
+	boost/v1_56/ptr_container.py \
+	boost/v1_56/smart_ptr.py \
+	boost/v1_56/unordered.py \
+	boost/v1_57/__init__.py \
+	boost/v1_57/optional.py \
+	boost/v1_57/ptr_container.py \
+	boost/v1_57/smart_ptr.py \
+	boost/v1_57/unordered.py
 
 CLEANFILES = \
 		boost/*.py[co] \
@@ -90,6 +100,8 @@ CLEANFILES = \
 		boost/v1_52/lib/*.py[co] \
 		boost/v1_53/*.py[co] \
 		boost/v1_54/*.py[co] \
-		boost/v1_55/*.py[co]
+		boost/v1_55/*.py[co] \
+		boost/v1_56/*.py[co] \
+		boost/v1_57/*.py[co]
 
 ## vim: set shiftwidth=4 tabstop=4 noexpandtab:
