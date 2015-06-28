@@ -36,3 +36,6 @@ site.exp
 
 # dejagnu backup file
 site.bak
+
+# test executables
+test/src/test
