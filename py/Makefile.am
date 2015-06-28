@@ -73,8 +73,7 @@ nobase_dist_gdb_DATA = \
 	boost/v1_55/smart_ptr.py \
 	boost/v1_55/unordered.py
 
-clean-local:
-	-rm -f \
+CLEANFILES = \
 		boost/*.py[co] \
 		boost/util/*.py[co] \
 		boost/v1_44/*.py[co] \
