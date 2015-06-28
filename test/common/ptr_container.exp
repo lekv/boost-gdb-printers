@@ -1,4 +1,3 @@
-
 # Test for GDB pretty printers for Boost.Pointer Container.
 #
 # Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
@@ -17,20 +16,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-load_lib pretty-printers.exp
-
-pp_gdb_init $BINFILE $srcdir/$subdir
-
-if {![pp_load_printers [list boost.$PP_VERSION.ptr_container]]} {
-    perror "could not load pretty printers"
-    return
-}
-
-if {![pp_run_test boost_ptr_container]} {
-    perror "the executable is not a proper pretty printer test"
-    return
-}
 
 pp_test "empty_deque" {empty boost::ptr_deque}
 pp_test "deque_int" {boost::ptr_deque of length 4 = \{0, 1, 2, 3\}}

@@ -17,6 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-load_lib ../v1_46/ptr_container.exp
+load_lib ../v1_44/ptr_container.exp
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:

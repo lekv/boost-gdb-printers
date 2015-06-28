@@ -1,4 +1,4 @@
-# Test for GDB pretty printers for Boost.Pointer Container.
+# Test for GDB pretty printers for Boost.Optional.
 #
 # Copyright (C) 2014 Red Hat, Inc., David Tardon <dtardon@redhat.com>
 #
@@ -17,6 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-load_lib ../v1_48/ptr_container.exp
+load_lib ../v1_44/optional.exp
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:

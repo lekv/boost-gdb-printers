@@ -32,6 +32,8 @@ if {![pp_run_test boost_ptr_container]} {
     return
 }
 
+load_lib ../common/ptr_container.exp
+
 pp_test "unordered_set_int" {boost::ptr_unordered_set with 4 elements = \{3, 2, 1, 0\}}
 
 pp_test "unordered_multiset_int" {boost::ptr_unordered_multiset with 5 elements = \{4, 3, 2, 1, 1\}}

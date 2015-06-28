@@ -1,6 +1,6 @@
-# Test for GDB pretty printers for Boost.Pointer Container.
+# Test for GDB pretty printers for Boost.Smart Ptr.
 #
-# Copyright (C) 2014 Red Hat, Inc., David Tardon <dtardon@redhat.com>
+# Copyright (C) 2012 Red Hat, Inc., David Tardon <dtardon@redhat.com>
 #
 # This file is part of boost-gdb-printers.
 #
@@ -17,6 +17,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-load_lib ../v1_48/ptr_container.exp
+load_lib pretty-printers.exp
+
+pp_gdb_init $BINFILE $srcdir/$subdir
+
+if {![pp_load_printers [list boost.$PP_VERSION.smart_ptr]]} {
+    perror "could not load pretty printers"
+    return
+}
+
+if {![pp_run_test boost_smart_ptr]} {
+    perror "the executable is not a proper pretty printer test"
+    return
+}
+
+pp_test "sp_empty" {empty boost::shared_ptr}
+pp_test "sp_set" {boost::shared_ptr 42}
+
+pp_test "sc_empty" {empty boost::scoped_ptr}
+pp_test "sc_set" {boost::scoped_ptr 32}
+
+pp_test "wp_empty" {empty boost::weak_ptr}
+pp_test "wp_set" {boost::weak_ptr 42}
 
 # vim: set shiftwidth=4 softtabstop=4 expandtab:
