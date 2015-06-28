@@ -1,3 +1,7 @@
+=== v. 4 ===
+
+* Add support for Boost 1.56 to 1.58 (yet another change in Unordered).
+
 === v. 3 ===
 
 * Stop mapping real Boost version to a pretty printer version; add
