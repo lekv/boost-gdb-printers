@@ -18,6 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from boost.v1_45.smart_ptr import register_pretty_printers
+from boost.v1_44.smart_ptr import register_pretty_printers
 
 # vim:set filetype=python shiftwidth=4 softtabstop=4 expandtab:
