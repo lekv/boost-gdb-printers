@@ -18,6 +18,11 @@ AC_ARG_WITH([boost-headers],
         [BOOST_CPPFLAGS=-I$with_boost_headers])
 AC_SUBST([BOOST_CPPFLAGS])
 
+AC_ARG_WITH([python-version],
+        [AS_HELP_STRING([--with-python-version=2|3], [set the python version to use])],
+        [python=python${python_version}],
+        [python=python2])
+
 # ===========================
 # Find required base packages
 # ===========================
@@ -84,6 +89,8 @@ AS_IF([test -d $srcdir/py/boost/v$boost_lib_version],
       [PP_VERSION=v$boost_lib_version],
       [AC_MSG_ERROR([boost version $boost_lib_version is not supported])])
 AC_SUBST([PP_VERSION])
+
+AX_PYTHON_MODULE([six], [fatal], [$python])
 
 # =====================
 # Prepare all .in files

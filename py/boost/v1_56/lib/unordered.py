@@ -16,6 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gdb
+import six
 
 class Unordered(object):
     '''Common representation of Boost.Unordered types in Boost 1.56.'''
@@ -65,7 +66,7 @@ class Unordered(object):
 
         self.extra_node = (str(bucket_type) == 'boost::unordered::detail::bucket')
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
         '''Iterator for Boost.Unordered types'''
 
         def __init__(self, start_node, node_type, value_type, extractor):
@@ -79,7 +80,7 @@ class Unordered(object):
         def __iter__(self):
             return self
 
-        def next(self):
+        def __next__(self):
             # sorry, no next node available
             if not self.next_node or self.next_node == self.node:
                 raise StopIteration()

@@ -17,6 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gdb
+import six
 
 from boost.v1_44.lib.unordered import Map, Set
 
@@ -47,7 +48,7 @@ class UnorderedMapPrinter(PrinterBase):
     def display_hint(self):
         return 'map'
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
 
         def __init__(self, impl):
             self.impl = impl
@@ -57,9 +58,9 @@ class UnorderedMapPrinter(PrinterBase):
         def __iter__(self):
             return self
 
-        def next(self):
+        def __next__(self):
             if self.step:
-                self.value = self.impl.next()
+                self.value = six.next(self.impl)
                 value = self.value[0]
             else:
                 value = self.value[1]
@@ -74,7 +75,7 @@ class UnorderedSetPrinter(PrinterBase):
     def display_hint(self):
         return 'array'
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
 
         def __init__(self, impl):
             self.impl = impl
@@ -82,8 +83,8 @@ class UnorderedSetPrinter(PrinterBase):
         def __iter__(self):
             return self
 
-        def next(self):
-            return ("", self.impl.next()[1])
+        def __next__(self):
+            return ("", six.next(self.impl)[1])
 
 printer = None
 

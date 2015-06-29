@@ -17,6 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gdb
+import six
 
 from boost.v1_52.lib.unordered import Map, Set
 
@@ -56,7 +57,7 @@ class PtrStdPrinterBase(object):
     def children(self):
         return self._iterator(self.sequence, self.value.type.template_argument(0))
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
 
         def __init__(self, sequence, type):
             self.impl = iter(sequence)
@@ -65,8 +66,8 @@ class PtrStdPrinterBase(object):
         def __iter__(self):
             return self
 
-        def next(self):
-            (index, value) = self.impl.next()
+        def __next__(self):
+            (index, value) = six.next(self.impl)
             return (index, value.cast(self.type).dereference())
 
     def _import_std(self):
@@ -121,7 +122,7 @@ class PtrMapPrinter(PtrStdPrinterBase):
         type = self.value.type
         return self._iterator(self.sequence, type.template_argument(0), type.template_argument(1))
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
 
         def __init__(self, sequence, key_type, value_type):
             self.impl = iter(sequence)
@@ -132,8 +133,8 @@ class PtrMapPrinter(PtrStdPrinterBase):
         def __iter__(self):
             return self
 
-        def next(self):
-            (index, value) = self.impl.next()
+        def __next__(self):
+            (index, value) = six.next(self.impl)
             if self.key:
                 value = value.cast(self.key_type)
             else:
@@ -145,7 +146,7 @@ class PtrMapPrinter(PtrStdPrinterBase):
         return 'map'
 
     def print_size(self, size):
-        return "with %s elements" % (size / 2)
+        return "with %d elements" % int(size / 2)
 
 class PtrBoostPrinterBase(object):
 
@@ -173,7 +174,7 @@ class PtrUnorderedMapPrinter(PtrBoostPrinterBase):
     def display_hint(self):
         return 'map'
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
 
         def __init__(self, impl, value_type):
             self.impl = impl
@@ -184,9 +185,9 @@ class PtrUnorderedMapPrinter(PtrBoostPrinterBase):
         def __iter__(self):
             return self
 
-        def next(self):
+        def __next__(self):
             if self.step:
-                self.value = self.impl.next()
+                self.value = six.next(self.impl)
                 value = self.value[0]
             else:
                 value = self.value[1].cast(self.value_type).dereference()
@@ -202,7 +203,7 @@ class PtrUnorderedSetPrinter(PtrBoostPrinterBase):
     def display_hint(self):
         return 'array'
 
-    class _iterator(object):
+    class _iterator(six.Iterator):
 
         def __init__(self, impl, value_type):
             self.impl = impl
@@ -211,8 +212,8 @@ class PtrUnorderedSetPrinter(PtrBoostPrinterBase):
         def __iter__(self):
             return self
 
-        def next(self):
-            return ("", self.impl.next()[1].cast(self.value_type).dereference())
+        def __next__(self):
+            return ("", six.next(self.impl)[1].cast(self.value_type).dereference())
 
 printer = None
 
