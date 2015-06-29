@@ -73,6 +73,8 @@ nobase_dist_gdb_DATA = \
 	boost/v1_55/smart_ptr.py \
 	boost/v1_55/unordered.py \
 	boost/v1_56/__init__.py \
+	boost/v1_56/lib/__init__.py \
+	boost/v1_56/lib/unordered.py \
 	boost/v1_56/optional.py \
 	boost/v1_56/ptr_container.py \
 	boost/v1_56/smart_ptr.py \
