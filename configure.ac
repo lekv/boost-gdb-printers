@@ -19,9 +19,9 @@ AC_ARG_WITH([boost-headers],
 AC_SUBST([BOOST_CPPFLAGS])
 
 AC_ARG_WITH([python-version],
-        [AS_HELP_STRING([--with-python-version=2|3], [set the python version to use])],
+        [AS_HELP_STRING([--with-python-version=2|3], [set the python version to use. The default value is 3])],
         [python=python${python_version}],
-        [python=python2])
+        [python=python3])
 
 # ===========================
 # Find required base packages
