@@ -1,3 +1,8 @@
+=== v. 5 ===
+
+* Make the code Python 3-compatible.
+* Really add support for Boost 1.58.
+
 === v. 4 ===
 
 * Add support for Boost 1.56 to 1.58 (yet another change in Unordered).

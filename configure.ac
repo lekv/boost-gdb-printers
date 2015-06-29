@@ -5,7 +5,7 @@ AC_PREREQ([2.65])
 # ======================
 # Autoconf/Automake init
 # ======================
-AC_INIT([boost-gdb-printers],[4])
+AC_INIT([boost-gdb-printers],[5])
 AC_CONFIG_MACRO_DIR([m4])
 AM_CONFIG_HEADER([config.h])
 AC_LANG([C++])
