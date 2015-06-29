@@ -22,7 +22,7 @@ dnl This is necessary because there does not seem to be any way to
 dnl determine the python version gdb has been compiled with.
 AC_ARG_WITH([python-version],
         [AS_HELP_STRING([--with-python-version=2|3], [set the python version to use. The default value is 3])],
-        [python=python${python_version}],
+        [python=python${with_python_version}],
         [python=python3])
 
 # ===========================
