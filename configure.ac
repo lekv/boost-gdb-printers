@@ -20,9 +20,9 @@ AC_SUBST([BOOST_CPPFLAGS])
 
 dnl This is necessary because there does not seem to be any way to
 dnl determine the python version gdb has been compiled with.
-AC_ARG_WITH([python-version],
-        [AS_HELP_STRING([--with-python-version=2|3], [set the python version to use. The default value is 3])],
-        [python=python${with_python_version}],
+AC_ARG_WITH([python2],
+        [AS_HELP_STRING([--with-python2], [build with python 2 instead of 3])],
+        [python=python2],
         [python=python3])
 
 # ===========================
