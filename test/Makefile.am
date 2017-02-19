@@ -25,7 +25,8 @@ EXTRA_DIST = \
 	v1_57 \
 	v1_58 \
 	v1_59 \
-	v1_60
+	v1_60 \
+	v1_61
 
 CLEANFILES = v1_*.log v1_*.sum
 
