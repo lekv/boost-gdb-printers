@@ -111,7 +111,7 @@ class Map(Unordered):
             return node['second']
 
         def make_type(self, key, value):
-            return gdb.lookup_type('std::pair<%s, %s>' % (key.const(), value))
+            return gdb.lookup_type('std::pair<%s const, %s>' % (key, value))
 
 class Set(Unordered):
 
